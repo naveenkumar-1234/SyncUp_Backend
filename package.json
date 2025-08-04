@@ -7,9 +7,7 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "NODE_OPTIONS='--loader tsx' node src/server.ts",
-  "postinstall": "tsc --skipLibCheck || echo 'TypeScript compilation optional'",
-  "ci": "npm install && npm run build && npm run start"
+     "start": "tsx src/server.ts"
   },
   "keywords": [],
   "author": "",

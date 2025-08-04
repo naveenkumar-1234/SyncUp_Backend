@@ -28,7 +28,7 @@ const server = http.createServer(app);
 app.get("/",(req : Request, res : Response)=>{
     res.json({
         "status":"working",
-        "version" : 1
+        "version" : 2
     }
 
     )
