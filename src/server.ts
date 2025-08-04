@@ -5,7 +5,7 @@ import http from 'http'
 import { verifyToken } from "./utils/jwt";
 import User from "./model/user.model";
 import Message from "./model/message.model";
-import express from "express";
+import express, { Request, Response } from "express";
 import routes from "./routes";
 import cors from "cors"
 import { socketController } from "./controller/socket.controller";
@@ -25,6 +25,14 @@ app.use(cors({
 const server = http.createServer(app);
 
 
+app.get("/",(req : Request, res : Response)=>{
+    res.json({
+        "status":"working",
+        "version" : 1
+    }
+
+    )
+})
 
 app.use('/',routes)
 
