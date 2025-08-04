@@ -15,6 +15,7 @@ export const register = async(req:Request , res:Response) => {
         const user = new User({username,email,password});
         await user.save();
         const token = generateToken(user);
+        console.log("User registered")
         return res.status(201).json({
             token,
             user: {
@@ -48,6 +49,8 @@ export const login = async(req:Request,res:Response) =>{
         
         }
         const token =  generateToken(user);
+        console.log("User logged in")
+
         res.status(201).json({token,user:{
             id: user._id,
             username :user.username}})
