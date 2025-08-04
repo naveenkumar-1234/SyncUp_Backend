@@ -24,4 +24,12 @@ pids
 *.tsbuildinfo
 
 # dotenv en
-    
+
+.env
+
+node_modules/
+dist/
+.replit
+*.env.local
+*.env.*
+.DS_Store
