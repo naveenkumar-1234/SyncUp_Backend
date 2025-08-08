@@ -12,8 +12,8 @@ export const generateToken= (user:IUser) : string => {
 
     return jwt.sign(
         {id: user._id , username :user.username},
-    key,
-    {expiresIn:exp}
+        key,
+        {expiresIn:exp}
     )
     
 }

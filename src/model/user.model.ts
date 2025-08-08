@@ -5,7 +5,8 @@ export interface IUser extends Document{
     username : string
     email : string
     password : string
-    rooms : []
+    isPremium : boolean;
+    rooms : mongoose.Types.ObjectId[];
     comparePassword(candidatePass :string) : Promise<boolean>
 }
 
@@ -14,22 +15,25 @@ const UserSchema = new Schema<IUser>({
     username :{
         type: String,
         required : true,
-        unique : true
+        unique : true,
+        trim:true
     },
     email:{
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim:true
     },
     password:{
         type: String,
         required: true
     },
-    rooms:{
-        type: [String],
+    rooms:[{
+        type: Schema.Types.ObjectId,
+        ref :'Room',
         default: []
-    }
-})
+    }]
+},{timestamps:true})
 
 UserSchema.pre('save',async function(next) {
     if(!this.isModified('password')) return next();
