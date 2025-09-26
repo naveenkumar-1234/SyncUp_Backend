@@ -13,7 +13,7 @@ async function clearDatabase() {
     await User.deleteMany({});
     await Room.deleteMany({});
     await Message.deleteMany({});
-    console.log("All data deleted 🔥");
+    console.log("All data deleted");
     process.exit();
   } catch (err) {
     console.error("Error clearing DB:", err);

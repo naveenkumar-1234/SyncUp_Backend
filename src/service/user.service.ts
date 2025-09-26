@@ -11,7 +11,7 @@ export const getRoomsOfUser = async(req :Request , res : Response) => {
 
     try {
         // console.log(mongoose.modelNames())
-        // console.log("Is Room model registered?", 'Room' in mongoose.models);
+        // console.log('Room' in mongoose.models);
         console.log("at get rooms");
         
         const user = await User.findById(userId).populate('rooms');
